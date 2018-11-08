@@ -26,15 +26,15 @@
     - name: "Pull influxdb docker image"
       docker_image:
         state: present
-        name: "influxdb:1.5.2"
-        tag: "1.5.2"
+        name: "influxdb:1.7.0"
+        tag: "1.7.0"
       tags:
         - influxdb
 
     - name: "Launch InfluxDB container"
       docker_container:
         name: influxdb
-        image: "influxdb:1.5.2"
+        image: "influxdb:1.7.0"
         command: influxd -config /etc/influxdb/influxdb.conf
         state: started
         restart_policy: always
@@ -48,6 +48,8 @@
         ports:
           - "8083:8083"
           - "8086:8086"
+        networks:
+          - name: "{{ network_name }}"
         env:
           INFLUXDB_ADMIN_USER: "{{influx_admin_user}}"
           INFLUXDB_ADMIN_PASSWORD: "{{influx_admin_password}}"
