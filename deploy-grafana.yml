@@ -8,12 +8,15 @@
     - "vars/credentials.yml"
   tasks:
     - name: Assures directories exists
-      file: path="{{item}}" state=directory
+      file: path="{{item}}" state=directory owner=root group=root
       with_items:
         - "/etc/grafana/provisioning/dashboards"
         - "/etc/grafana/provisioning/datasources"
-        - "/var/lib/grafana/dashboards"
+        - "/var/lib/grafana"
         - "/var/log/grafana"
+        - "/var/lib/grafana/plugins"
+        - "/var/lib/grafana/png"
+        - "/var/lib/grafana/dashboards"
         - "/var/lib/postgresql/data"
       tags:
         - grafana
@@ -69,7 +72,7 @@
         ports:
           - "5432:5432"
         networks:
-          - name: "{{ network_name }}"
+          - name: "{{ monitoring_network_name }}"
         volumes:
           - /var/lib/postgresql/data:/var/lib/postgresql/data
         env:
@@ -97,7 +100,7 @@
         ports:
           - "3000:3000"
         networks:
-          - name: "{{ network_name }}"
+          - name: "{{ monitoring_network_name }}"
         volumes:
           - /var/lib/grafana:/var/lib/grafana
           - /etc/grafana:/etc/grafana

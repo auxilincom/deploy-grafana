@@ -20,6 +20,9 @@ domains_list:
 
 hostname: auxilin
 
+monitoring_network_name: auxilin_monitor_isolated_network
+app_network_name: auxilin_isolated_network
+
 gf_domain: demo-monitor.auxilin.com
 
 # postgres database name

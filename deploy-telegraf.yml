@@ -7,7 +7,7 @@
     - "vars/main.yml"
     - "vars/credentials.yml"
   tasks:
-    - name: Assures grafana directories exists
+    - name: Assures telegraf directories exists
       file: path=/etc/telegraf state=directory
       tags:
         - telegraf
@@ -18,6 +18,10 @@
                 group=root
       tags:
         - telegraf
+
+    - name: create application networks
+      docker_network:
+        name: "{{ app_network_name }}"
 
     - name: pull telegraf image
       docker_image:
@@ -40,7 +44,7 @@
           - "8125:8125/udp"
           - "8094:8094"
         networks:
-          - name: "{{ network_name }}"
+          - name: "{{ app_network_name }}"
         volumes:
           - /etc/telegraf/telegraf.conf:/etc/telegraf/telegraf.conf:ro
           - /var/run/docker.sock:/var/run/docker.sock:ro

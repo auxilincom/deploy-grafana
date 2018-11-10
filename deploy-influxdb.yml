@@ -49,7 +49,7 @@
           - "8083:8083"
           - "8086:8086"
         networks:
-          - name: "{{ network_name }}"
+          - name: "{{ monitoring_network_name }}"
         env:
           INFLUXDB_ADMIN_USER: "{{influx_admin_user}}"
           INFLUXDB_ADMIN_PASSWORD: "{{influx_admin_password}}"
