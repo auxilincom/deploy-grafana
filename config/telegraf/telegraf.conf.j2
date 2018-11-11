@@ -483,7 +483,7 @@
 [[inputs.disk]]
   ## By default, telegraf gather stats for all mountpoints.
   ## Setting mountpoints will restrict the stats to the specified mountpoints.
-  # mount_points = ["/"]
+  mount_points = ["/"]
 
   ## Ignore some mountpoints by filesystem type. For example (dev)tmpfs (usually
   ## present on /run, /var/run, /dev/shm or /dev).
@@ -495,7 +495,7 @@
   ## By default, telegraf will gather stats for all devices including
   ## disk partitions.
   ## Setting devices will restrict the stats to the specified devices.
-  # devices = ["sda", "sdb"]
+  devices = ["sda"]
   ## Uncomment the following line if you need disk serial numbers.
   # skip_serial_number = false
 
@@ -1248,12 +1248,12 @@
 
 
 # # Read metrics about network interface usage
-# [[inputs.net]]
-#   ## By default, telegraf gathers stats from any up interface (excluding loopback)
-#   ## Setting interfaces will tell it to gather these explicit interfaces,
-#   ## regardless of status.
-#   ##
-#   # interfaces = ["eth0"]
+[[inputs.net]]
+  ## By default, telegraf gathers stats from any up interface (excluding loopback)
+  ## Setting interfaces will tell it to gather these explicit interfaces,
+  ## regardless of status.
+  ##
+  interfaces = ["eth0"]
 
 
 # # TCP or UDP 'ping' given url and collect response time in seconds
@@ -1280,9 +1280,9 @@
 #   ## Set timeout
 #  timeout = "5s"
 
-# # Read TCP metrics such as established, time wait and sockets counts.
-# [[inputs.netstat]]
-#   # no configuration
+# Read TCP metrics such as established, time wait and sockets counts.
+[[inputs.netstat]]
+  # no configuration
 
 
 # # Read Nginx's basic status information (ngx_http_stub_status_module)

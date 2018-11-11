@@ -39,10 +39,15 @@
         - grafana
 
     - name: Copy dashboard
-      template: src="./config/grafana/dashboards.json"
-                dest="/var/lib/grafana/dashboards/dashboards.json"
+      template: src="./config/grafana/{{item}}.json"
+                dest="/var/lib/grafana/dashboards/{{item}}.json"
                 owner=root
                 group=root
+      with_items:
+        - docker
+        - linux
+        - mongodb
+        - redis
       tags:
         - grafana
 

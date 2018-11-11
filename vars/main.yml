@@ -44,10 +44,10 @@ influxdb_connection: http://104.248.19.180:8086
 #   mongodb://10.10.3.33:18832,
 #   10.0.0.1:10000, etc.
 # mongo_connection: mongodb://10.10.3.33:27017
-mongo_connection: mongodb://104.248.19.180:27017
+mongo_connection: mongodb://auxilin-mongo:27017
 # Redis connection string, used by telegraf to monitor count of operations
 # e.g.
 #   tcp://localhost:6379
 #   tcp://:password@192.168.99.100
 #   unix:///var/run/redis.sock
-redis_connection: tcp://104.248.19.180:6379
+redis_connection: tcp://redis:6379
