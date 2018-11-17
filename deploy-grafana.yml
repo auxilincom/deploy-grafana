@@ -103,7 +103,7 @@
         state: started
         restart_policy: always
         ports:
-          - "3000:3300"
+          - "3300:3000"
         networks:
           - name: "{{ monitoring_network_name }}"
         volumes:
