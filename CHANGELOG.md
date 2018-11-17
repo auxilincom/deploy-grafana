@@ -1,3 +1,7 @@
+## v0.2.2 (2018-11-17)
+
+* Fix nginx config
+
 ## v0.2.1 (2018-11-12)
 
 * Update grafana port

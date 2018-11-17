@@ -8,8 +8,8 @@ nginx_http_template_enable: true
 server_setup_ssl: false
 server_setup_letsencrypt_ssl: true
 
-server_ssl_key_path: "/etc/letsencrypt/live/ci.auxilin.com/fullchain.pem"
-server_ssl_cert_path: "/etc/letsencrypt/live/ci.auxilin.com/privkey.pem"
+server_ssl_key_path: "/etc/letsencrypt/live/demo-monitor.auxilin.com/fullchain.pem"
+server_ssl_cert_path: "/etc/letsencrypt/live/demo-monitor.auxilin.com/privkey.pem"
 server_ssl_dhparams: "/etc/nginx/dhparams.pem"
 
 # Letsencrypt variables
