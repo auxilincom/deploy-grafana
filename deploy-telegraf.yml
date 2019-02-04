@@ -27,15 +27,15 @@
       docker_image:
         state: present
         force: yes
-        name: "telegraf:1.8.3"
-        tag: "1.8.3"
+        name: "telegraf:1.9.3"
+        tag: "1.9.3"
       tags:
         - telegraf
 
     - name: run telegraf via docker
       docker_container:
         name: telegraf
-        image: telegraf:1.8.3
+        image: telegraf:1.9.3
         state: started
         restart_policy: always
         force_kill: yes

@@ -1,3 +1,8 @@
+## v0.3.0 (2019-02-04)
+
+* Update readme
+* Update versions of grafana, influxdb, telegraf
+
 ## v0.2.2 (2018-11-17)
 
 * Fix nginx config

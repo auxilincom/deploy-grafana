@@ -1,13 +1,17 @@
 ## Deploy grafana and influxdb
 
+[![Auxilin.com — Production ready Node, React starter kit for building products at a warp speed](https://raw.githubusercontent.com/auxilincom/component-template/master/assets/cover-black.png)](https://github.com/auxilincom/auxilin)
+
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+[![David Dependancy Status](https://david-dm.org/auxilincom/deploy-grafana.svg)](https://david-dm.org/auxilincom/deploy-grafana)
 
 [![Watch on GitHub](https://img.shields.io/github/watchers/auxilincom/deploy-grafana.svg?style=social&label=Watch)](https://github.com/auxilincom/deploy-grafana/watchers)
 [![Star on GitHub](https://img.shields.io/github/stars/auxilincom/deploy-grafana.svg?style=social&label=Stars)](https://github.com/auxilincom/deploy-grafana/stargazers)
 [![Follow](https://img.shields.io/twitter/follow/auxilin.svg?style=social&label=Follow)](https://twitter.com/auxilin)
 [![Tweet](https://img.shields.io/twitter/url/https/github.com/auxilincom/deploy-grafana.svg?style=social)](https://twitter.com/intent/tweet?text=I%27m%20using%20Auxilin%20components%20to%20build%20my%20next%20product%20🚀.%20Check%20it%20out:%20https://github.com/auxilincom/deploy-grafana)
+[![@auxilin](https://img.shields.io/badge/%F0%9F%92%AC%20Telegram-t.me/auxilin-blue.svg)](https://t.me/auxilin)
 
 [Grafana](https://grafana.com/) is an open source, feature rich metrics dashboard and graph editor for Graphite, Elasticsearch, OpenTSDB, Prometheus and InfluxDB. It is lightweight, stupidly simple, free & [Docker](https://www.docker.com/) based.
 

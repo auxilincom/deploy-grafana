@@ -8,7 +8,7 @@
     - "vars/credentials.yml"
   tasks:
     - name: Assures directories exists
-      file: path="{{item}}" state=directory owner=root group=root
+      file: path="{{ item }}" state=directory owner=root group=root
       with_items:
         - "/etc/grafana/provisioning/dashboards"
         - "/etc/grafana/provisioning/datasources"
@@ -39,8 +39,8 @@
         - grafana
 
     - name: Copy dashboard
-      template: src="./config/grafana/{{item}}.json"
-                dest="/var/lib/grafana/dashboards/{{item}}.json"
+      template: src="./config/grafana/{{ item }}.json"
+                dest="/var/lib/grafana/dashboards/{{ item }}.json"
                 owner=root
                 group=root
       with_items:
@@ -81,9 +81,9 @@
         volumes:
           - /var/lib/postgresql/data:/var/lib/postgresql/data
         env:
-          POSTGRES_USER: "{{postgres_user}}"
-          POSTGRES_PASSWORD: "{{postgres_password}}"
-          POSTGRES_DB: "{{postgres_db_name}}"
+          POSTGRES_USER: "{{ postgres_user }}"
+          POSTGRES_PASSWORD: "{{ postgres_password }}"
+          POSTGRES_DB: "{{ postgres_db_name }}"
       tags:
         - postgres
 
@@ -91,15 +91,15 @@
       docker_image:
         state: present
         force: yes
-        name: "grafana/grafana:5.3.2"
-        tag: "5.3.2"
+        name: "grafana/grafana:5.4.3"
+        tag: "5.4.3"
       tags:
         - grafana
 
     - name: "Launch Grafana container"
       docker_container:
         name: grafana
-        image: grafana/grafana:5.3.2
+        image: grafana/grafana:5.4.3
         state: started
         restart_policy: always
         ports:
@@ -111,7 +111,7 @@
           - /etc/grafana:/etc/grafana
           - /var/log/grafana:/var/log/grafana
         env:
-          GF_SECURITY_ADMIN_USER: "{{gf_admin_user}}"
-          GF_SECURITY_ADMIN_PASSWORD: "{{gf_admin_password}}"
+          GF_SECURITY_ADMIN_USER: "{{ gf_admin_user }}"
+          GF_SECURITY_ADMIN_PASSWORD: "{{ gf_admin_password }}"
       tags:
         - grafana
