@@ -62,16 +62,17 @@
     - name: "Pull PostgreSQL docker image"
       docker_image:
         state: present
-        force: yes
-        name: "postgres:11.1"
-        tag: "11.1"
+        source: pull
+        force_source: yes
+        name: "postgres:11.3"
+        tag: "11.3"
       tags:
         - postgres
 
     - name: "Launch PostgreSQL container"
       docker_container:
         name: postgres
-        image: postgres:11.1
+        image: postgres:11.3
         state: started
         restart_policy: always
         ports:
@@ -83,23 +84,42 @@
         env:
           POSTGRES_USER: "{{ postgres_user }}"
           POSTGRES_PASSWORD: "{{ postgres_password }}"
-          POSTGRES_DB: "{{ postgres_db_name }}"
       tags:
         - postgres
 
     - name: "Pull Grafana docker image"
       docker_image:
         state: present
-        force: yes
-        name: "grafana/grafana:5.4.3"
-        tag: "5.4.3"
+        source: pull
+        force_source: yes
+        name: "grafana/grafana:6.2.5"
+        tag: "6.2.5"
       tags:
         - grafana
+
+    - name: Make sure psycopg2 is installed
+      apt:
+        name:
+          - python3-psycopg2
+          - python-psycopg2
+        state: latest
+      tags:
+        - postgres
+
+    - name: create postgres database
+      postgresql_db:
+        login_host: "localhost"
+        login_password: "{{ postgres_password }}"
+        login_user: "{{ postgres_user }}"
+        name: "{{ postgres_db_name }}"
+        port: "5432"
+      tags:
+        - postgres
 
     - name: "Launch Grafana container"
       docker_container:
         name: grafana
-        image: grafana/grafana:5.4.3
+        image: grafana/grafana:6.2.5
         state: started
         restart_policy: always
         ports:

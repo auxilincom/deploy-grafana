@@ -1,3 +1,8 @@
+## v0.4.0 (2019-07-13)
+
+* Fix ansible warnings
+* Update versions of grafana, influxdb, telegraf
+
 ## v0.3.0 (2019-02-04)
 
 * Update readme
